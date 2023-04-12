@@ -1,0 +1,17 @@
+name: CI
+
+on:
+#   schedule:
+#     - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    steps:
+      - name: create issues from template
+        run: |
+            $issue_list=gh issue list -l ${LABEL_NAME} --json title,body
+            IFS=$'\n'; for issue in $(echo $issue_list | jq -c '.[]'); do
+              echo $issue | jq .name
+            done
