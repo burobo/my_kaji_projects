@@ -47,7 +47,7 @@ jobs:
               title_template=$(echo "${issue}" | jq -r '.title' | sed -E "s/^\[\[\[.*?(\]\]\]\s+)//g")
               body=$(echo "${issue}" | jq -r '.body')
               task_title_suffix=`date +"%Y%m%d"`
-              gh issue create --title "${title_template}_${task_title_suffix}" --body "${body}" -l "task" -p "kaji"
+              gh issue create --title "${title_template}_${task_title_suffix}" --body "${body}" -p "kaji"
             done            
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
