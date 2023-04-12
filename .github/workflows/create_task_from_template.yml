@@ -15,3 +15,6 @@ jobs:
             IFS=$'\n'; for issue in $(echo $issue_list | jq -c '.[]'); do
               echo $issue | jq .name
             done
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
