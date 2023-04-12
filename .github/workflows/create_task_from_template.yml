@@ -42,5 +42,5 @@ jobs:
               gh issue create --title "${title_template}_${task_title_suffix}" --body "${body}" -p "kaji"
             done            
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_KAJI }}
         
