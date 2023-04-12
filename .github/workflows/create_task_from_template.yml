@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: create issues from template
         run: |
-            $issue_list=`gh issue list -l ${LABEL_NAME} --json title,body`
+            $issue_list=`gh issue list -l template --json title,body`
             IFS=$'\n'; for issue in $(echo $issue_list | jq -c '.[]'); do
               echo $issue | jq .name
             done
